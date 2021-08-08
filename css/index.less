@@ -1,0 +1,527 @@
+@import 'fonts.css';
+
+.body-wrap {
+   max-width: 1920px;
+   margin: 0 auto;
+}
+
+body {
+   font-style: normal;
+}
+
+.ubuntu_r() { font-family: 'Ubuntu', sans-serif; }
+.bearpaw() { font-family: 'Bearpaw', serif; }
+.electron_r() { font-family: "Electron Regular", serif; }
+
+
+// header-top
+.header-top {
+   background: url("../images/header_bg.jpg") center center no-repeat;
+   background-size: cover;
+   box-sizing: border-box;
+
+   .header-top__body {
+      max-width: 1155px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+   }
+
+   .header-top__contacts {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 355px;
+      margin-top: 22px;
+      margin-bottom: 22px;
+
+      .header-top__contacts-item {
+         width: 50%;
+         display: flex;
+         align-items: center;
+
+         &:first-child {
+            img {
+               opacity: 0;
+            }
+         }
+
+         .title {
+            .ubuntu_r();
+            color: #ef2524;
+            font-size: 16px;
+            line-height: 36px;
+            text-align: right;
+         }
+
+         img {
+            display: block;
+            margin-right: 4px;
+            width: 25px;
+         }
+
+         .link {
+            text-decoration: none;
+            color: #ffc10e;
+            .ubuntu_r();
+            font-size: 16px;
+            line-height: 36px;
+         }
+      }
+   }
+
+   .header-top__logo {
+      position: absolute;
+      top: 0;
+
+      .logo {
+         position: absolute;
+      }
+   }
+
+   .header-top__navigation {
+      display: flex;
+      align-items: center;
+
+      .header-top__b2b {
+         img {
+            width: 53px;
+            display: block;
+            margin-right: 35px;
+         }
+      }
+
+      .header-top__menu {
+         display: flex;
+         align-items: center;
+
+         span {
+            .ubuntu_r();
+            color: #ffc10e;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-right: 10px;
+         }
+
+         img {
+            width: 72px;
+            display: block;
+            margin-right: 38px;
+            cursor: pointer;
+         }
+      }
+
+      .header-top__languages {
+         position: relative;
+         padding-right: 17px;
+         box-sizing: border-box;
+
+         .header-top__languages-title {
+            display: flex;
+            align-items: center;
+            .ubuntu_r();
+            color: #ffc10e;
+            font-size: 16px;
+            cursor: pointer;
+            text-transform: uppercase;
+
+            img {
+               width: 36px;
+               display: block;
+               margin-right: 10px;
+            }
+
+            &::after {
+               content: '';
+               position: absolute;
+               top: 16px;
+               right: 0px;
+               background: url("../images/arrow_tri.png") center center no-repeat;
+               width: 12px;
+               height: 6px;
+            }
+         }
+
+         .header-top__languages-list {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 36px;
+            overflow: hidden;
+         }
+
+         li {
+            display: flex;
+            align-items: center;
+            .ubuntu_r();
+            color: #ffc10e;
+            font-size: 16px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            text-transform: uppercase;
+
+            img {
+               width: 36px;
+               display: block;
+               margin-right: 10px;
+            }
+         }
+      }
+   }
+
+   @media all and (min-width: 1025px) {
+      .header-top__body {
+         height: 118px;
+      }
+
+      .header-top__b2b.mobile {
+         display: none;
+      }
+
+      .header-top__logo {
+         width: 337px;
+         left: calc(50% - 168.5px);
+
+         .logo-before {
+            img {
+               width: 337px;
+            }
+         }
+
+         .logo {
+            top: 5px;
+            left: calc(50% - 116px);
+
+            img {
+               width: 245px;
+            }
+         }
+      }
+
+      .header-top__languages {
+         .header-top__languages-title {
+            margin-bottom: 10px;
+         }
+      }
+   }
+
+   @media all and (max-width: 1024px) {
+      .header-top__body {
+         height: 68px;
+      }
+
+      .header-top__contacts {
+         display: none;
+      }
+
+      .header-top__b2b.pc {
+         display: none;
+      }
+
+      .header-top__logo {
+         width: 190px;
+         left: 38px;
+
+         .logo-before {
+            img {
+               width: 190px;
+            }
+         }
+
+         .logo {
+            top: 4px;
+            left: calc(50% - 65px);
+
+            img {
+               width: 138px;
+            }
+         }
+      }
+
+      .header-top__languages {
+         .header-top__languages-title {
+            margin-bottom: 0;
+         }
+      }
+   }
+
+   @media all and (min-width: 769px) {
+      padding: 0 30px;
+   }
+
+   @media all and (max-width: 768px) {
+      padding: 0 15px;
+   }
+
+   @media all and (max-width: 500px) {
+      .header-top__navigation {
+         .header-top__menu {
+            span {
+               display: none;
+            }
+
+            img {
+               margin-right: 15px;
+            }
+         }
+      }
+   }
+}
+// end . header-top
+
+
+// content home
+.content.home {
+
+}
+// end .content home
+
+
+// top-block
+.top-block {
+   background: #2e0622 url("../images/top_block_bg.jpg") center center no-repeat;
+   background-size: cover;
+
+   .top-block__body {
+      max-width: 1250px;
+      height: 987px;
+      margin: 0 auto;
+      position: relative;
+   }
+
+   .top-block__title {
+      .bearpaw();
+      font-size: 78px;
+      color: #ffc10e;
+      line-height: 60px;
+      text-align: center;
+      padding-top: 60px;
+   }
+
+   .roulette {
+      position: absolute;
+      left: -51px;
+      top: 203px;
+
+      .roulette__prize {
+         display: none;
+
+         .roulette__prize {
+            svg {
+
+            }
+
+            span {
+
+            }
+         }
+      }
+
+      .roulette__wheel-lights {
+         position: relative;
+         z-index: 2;
+
+         img {
+            width: 560px;
+         }
+      }
+
+      .roulette__wheel-spin {
+         position: absolute;
+         left: 70px;
+         top: 68px;
+         z-index: 1;
+
+         &.pulse {
+            animation: drumLoader .5s infinite linear;
+         }
+
+         &.rotate {
+            animation: wheelSpinLoader 1.2s ease-out;
+         }
+      }
+
+      .roulette__wheel-prize-wrap {
+         position: absolute;
+         right: 37px;
+         top: 99px;
+         z-index: 1;
+         opacity: 0;
+         transition: opacity .5s ease-in-out;
+
+         &.show {
+            opacity: 1;
+            transition: opacity .5s ease-in-out;
+         }
+
+         .wheel-prize {
+            position: absolute;
+            right: 68px;
+            top: calc(50% - 52px);
+            z-index: 3;
+
+            img {
+               width: 100px;
+            }
+         }
+      }
+
+      @keyframes wheelSpinLoader {
+         0% { transform: rotate(-360deg); }
+         100% { transform: rotate(0); }
+      }
+
+      @keyframes drumLoader {
+         100% { transform: scale(1); }
+         50% { transform: scale(1.025); }
+         0% { transform: scale(1); }
+      }
+
+      .roulette__spin-btn {
+         position: absolute;
+         left: 238px;
+         top: 244px;
+         z-index: 2;
+         cursor: pointer;
+
+         &.active {
+            cursor: none;
+
+            span {
+               transform: scale(.8);
+               filter: brightness(1);
+            }
+
+            .spin-bg {
+               filter: brightness(1);
+            }
+
+            &:hover {
+               span {
+                  transform: scale(.8);
+                  filter: brightness(1);
+               }
+
+               .spin-bg {
+                  filter: brightness(1);
+               }
+            }
+         }
+
+         &:hover {
+            span {
+               transform: scale(1);
+               filter: brightness(1.8);
+               transition: transform .2s ease-in-out;
+            }
+
+            .spin-bg {
+               filter: brightness(1.8);
+               transition: filter .2s ease-in-out;
+            }
+         }
+
+         .spin-bg {
+            width: 86px;
+            height: 86px;
+            display: block;
+            filter: brightness(1.3);
+            transition: filter .2s ease-in-out;
+         }
+
+         span {
+            position: absolute;
+            top: 19px;
+            left: -13px;
+            transform: scale(.9);
+            filter: brightness(1.3);
+            transition: transform .2s ease-in-out;
+
+            img {
+               width: 113px;
+               height: 46px;
+               display: block;
+            }
+         }
+      }
+   }
+
+   .top-block__candle {
+      position: absolute;
+      bottom: -26px;
+      right: -212px;
+
+      img {
+         width: 350px;
+      }
+   }
+
+   .top-block__get-win {
+      position: absolute;
+      right: 32px;
+      top: 128px;
+      cursor: pointer;
+
+      img {
+         width: 199px;
+         transition: filter .2s ease-in-out;
+
+         &:hover {
+            filter: brightness(1.3);
+            transition: filter .2s ease-in-out;
+         }
+      }
+   }
+
+   .top-block__prizes {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 415px;
+      margin: 0 auto;
+      position: relative;
+      left: calc(50% - 580px);
+
+      .scroll {
+         position: absolute;
+         top: 0;
+         left: 0;
+         z-index: 2;
+         pointer-events: none;
+
+         img {
+            width: 415px;
+         }
+      }
+
+      .scroll-canvas {
+         position: absolute;
+         top: 40px;
+         left: calc(50% - 160px);
+         z-index: 1;
+         background: url("../images/scroll_part2.png") center bottom no-repeat;
+         background-size: cover;
+         width: 320px;
+         padding-bottom: 20px;
+      }
+
+      .scroll-canvas__prizes {
+
+      }
+
+      .get-your-prizes {
+         width: 236px;
+         height: 67px;
+         background: url("../images/Get-Your-Prizes.png") center center no-repeat;
+         background-size: cover;
+         cursor: pointer;
+         display: block;
+         margin: 0 auto;
+         margin-top: 30px;
+      }
+   }
+}
+// end . top-block
