@@ -1053,11 +1053,17 @@ body {
          align-items: center;
       }
 
+      @keyframes fileCircle {
+         0% { transform: rotate(360deg); }
+         100% { transform: rotate(0); }
+      }
+
       .about__file-circle {
          position: absolute;
          z-index: 1;
          top: -45px;
          right: -12px;
+         animation: fileCircle .9s infinite linear;
       }
 
       .about__file-img {
@@ -1094,6 +1100,176 @@ body {
          line-height: 36px;
          color: #fff;
          margin-top: 15px;
+      }
+
+      .about__canvas {
+         background: url("../images/about_canvas.png") center center no-repeat;
+         background-size: cover;
+         margin: 10px -50px 0 -50px;
+         padding-top: 75px;
+         padding-bottom: 65px;
+         padding-left: 50px;
+         box-sizing: border-box;
+      }
+
+      .about__canvas-line {
+         display: flex;
+
+         .img-1 {
+            display: block;
+            margin-right: 75px;
+         }
+
+         .img-2__body {
+            margin-top: 27px;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+
+            &::after {
+               content: '';
+               position: absolute;
+               bottom: 0;
+               left: 0;
+            }
+         }
+
+         .img-2 {
+            width: 36px;
+            display: block;
+            margin-right: 10px;
+         }
+
+         .img-2__text {
+            span {
+               display: block;
+               .ubuntu();
+
+               &:first-child {
+                  font-weight: 400;
+                  color: #fcf44f;
+                  font-size: 26px;
+                  line-height: 26px;
+                  text-decoration: underline;
+               }
+
+               &:last-child {
+                  font-weight: 300;
+                  color: #fff;
+                  font-size: 16px;
+               }
+            }
+         }
+
+         .img-3 {
+            display: block;
+         }
+
+         .pdfs {
+            display: flex;
+            margin-left: 105px;
+         }
+
+         .pdf {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 42px;
+
+            img {
+               width: 48px;
+               height: 60px;
+               display: block;
+            }
+
+            span {
+               display: block;
+               color: #fff;
+               .ubuntu();
+               font-weight: 300;
+               font-size: 16px;
+               line-height: 26px;
+               text-decoration: underline;
+            }
+         }
+      }
+
+      .about__languages {
+         margin-top: 40px;
+
+         .about__languages-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+
+            svg {
+               path {
+                  fill: #fcf44f;
+               }
+            }
+
+            span {
+               color: #fcf44f;
+               .ubuntu();
+               font-weight: 300;
+               font-size: 22px;
+               display: block;
+               margin-left: 10px;
+            }
+         }
+
+         .about__languages-list {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 32px;
+            box-sizing: border-box;
+         }
+
+         .about__language {
+            width: 33.3333%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+
+            img {
+               width: 24px;
+            }
+
+            span {
+               .ubuntu();
+               font-weight: 300;
+               color: #fff;
+               font-size: 20px;
+               display: block;
+               margin-left: 10px;
+            }
+         }
+      }
+
+      .about__info {
+         margin-top: 15px;
+
+         .about-info__text {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+
+            svg {
+               margin-right: 10px;
+
+               path {
+                  fill: #fcf44f;
+               }
+            }
+
+            p {
+               color: #fcf44f;
+               .ubuntu();
+               font-weight: 300;
+               font-size: 22px;
+               line-height: 36px;
+            }
+         }
       }
    }
 

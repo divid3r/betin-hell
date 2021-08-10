@@ -816,11 +816,20 @@ body {
   flex-direction: column;
   align-items: center;
 }
+@keyframes fileCircle {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
 .about .about__left .about__file-circle {
   position: absolute;
   z-index: 1;
   top: -45px;
   right: -12px;
+  animation: fileCircle 0.9s infinite linear;
 }
 .about .about__left .about__file-img {
   position: relative;
@@ -852,6 +861,145 @@ body {
   line-height: 36px;
   color: #fff;
   margin-top: 15px;
+}
+.about .about__right .about__canvas {
+  background: url("../images/about_canvas.png") center center no-repeat;
+  background-size: cover;
+  margin: 10px -50px 0 -50px;
+  padding-top: 75px;
+  padding-bottom: 65px;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.about .about__right .about__canvas-line {
+  display: flex;
+}
+.about .about__right .about__canvas-line .img-1 {
+  display: block;
+  margin-right: 75px;
+}
+.about .about__right .about__canvas-line .img-2__body {
+  margin-top: 27px;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+.about .about__right .about__canvas-line .img-2__body::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.about .about__right .about__canvas-line .img-2 {
+  width: 36px;
+  display: block;
+  margin-right: 10px;
+}
+.about .about__right .about__canvas-line .img-2__text span {
+  display: block;
+  font-family: 'Ubuntu', sans-serif;
+}
+.about .about__right .about__canvas-line .img-2__text span:first-child {
+  font-weight: 400;
+  color: #fcf44f;
+  font-size: 26px;
+  line-height: 26px;
+  text-decoration: underline;
+}
+.about .about__right .about__canvas-line .img-2__text span:last-child {
+  font-weight: 300;
+  color: #fff;
+  font-size: 16px;
+}
+.about .about__right .about__canvas-line .img-3 {
+  display: block;
+}
+.about .about__right .about__canvas-line .pdfs {
+  display: flex;
+  margin-left: 105px;
+}
+.about .about__right .about__canvas-line .pdf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 42px;
+}
+.about .about__right .about__canvas-line .pdf img {
+  width: 48px;
+  height: 60px;
+  display: block;
+}
+.about .about__right .about__canvas-line .pdf span {
+  display: block;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 26px;
+  text-decoration: underline;
+}
+.about .about__right .about__languages {
+  margin-top: 40px;
+}
+.about .about__right .about__languages .about__languages-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.about .about__right .about__languages .about__languages-title svg path {
+  fill: #fcf44f;
+}
+.about .about__right .about__languages .about__languages-title span {
+  color: #fcf44f;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  display: block;
+  margin-left: 10px;
+}
+.about .about__right .about__languages .about__languages-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+.about .about__right .about__languages .about__language {
+  width: 33.3333%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.about .about__right .about__languages .about__language img {
+  width: 24px;
+}
+.about .about__right .about__languages .about__language span {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  color: #fff;
+  font-size: 20px;
+  display: block;
+  margin-left: 10px;
+}
+.about .about__right .about__info {
+  margin-top: 15px;
+}
+.about .about__right .about__info .about-info__text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.about .about__right .about__info .about-info__text svg {
+  margin-right: 10px;
+}
+.about .about__right .about__info .about-info__text svg path {
+  fill: #fcf44f;
+}
+.about .about__right .about__info .about-info__text p {
+  color: #fcf44f;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 36px;
 }
 @media all and (min-width: 769px) {
   .about {
