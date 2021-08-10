@@ -9,7 +9,7 @@ body {
    font-style: normal;
 }
 
-.ubuntu_r() { font-family: 'Ubuntu', sans-serif; }
+.ubuntu() { font-family: 'Ubuntu', sans-serif; }
 .bearpaw() { font-family: 'Bearpaw', serif; }
 .electron_r() { font-family: "Electron Regular", serif; }
 
@@ -50,7 +50,7 @@ body {
          }
 
          .title {
-            .ubuntu_r();
+            .ubuntu();
             color: #ef2524;
             font-size: 16px;
             line-height: 36px;
@@ -66,7 +66,7 @@ body {
          .link {
             text-decoration: none;
             color: #ffc10e;
-            .ubuntu_r();
+            .ubuntu();
             font-size: 16px;
             line-height: 36px;
          }
@@ -99,18 +99,38 @@ body {
          align-items: center;
 
          span {
-            .ubuntu_r();
+            .ubuntu();
             color: #ffc10e;
             font-size: 16px;
             text-transform: uppercase;
             margin-right: 10px;
          }
 
-         img {
+         .menu {
             width: 72px;
-            display: block;
             margin-right: 38px;
             cursor: pointer;
+            position: relative;
+         }
+
+         .menu__body {
+            svg {
+               path {
+                  fill: #af0104;
+               }
+            }
+         }
+
+         .menu__button {
+            position: absolute;
+            top: -4px;
+            left: calc(50% - 17.875px);
+
+            svg {
+               path {
+                  fill: #f5b90f;
+               }
+            }
          }
       }
 
@@ -122,7 +142,7 @@ body {
          .header-top__languages-title {
             display: flex;
             align-items: center;
-            .ubuntu_r();
+            .ubuntu();
             color: #ffc10e;
             font-size: 16px;
             cursor: pointer;
@@ -138,7 +158,7 @@ body {
                content: '';
                position: absolute;
                top: 16px;
-               right: 0px;
+               right: 0;
                background: url("../images/arrow_tri.png") center center no-repeat;
                width: 12px;
                height: 6px;
@@ -156,7 +176,7 @@ body {
          li {
             display: flex;
             align-items: center;
-            .ubuntu_r();
+            .ubuntu();
             color: #ffc10e;
             font-size: 16px;
             margin-bottom: 10px;
@@ -241,6 +261,18 @@ body {
          }
       }
 
+      .header-top__navigation {
+         .header-top__menu {
+            .menu__button {
+               top: 1px;
+
+               svg {
+                  height: 25px;
+               }
+            }
+         }
+      }
+
       .header-top__languages {
          .header-top__languages-title {
             margin-bottom: 0;
@@ -250,6 +282,25 @@ body {
 
    @media all and (min-width: 769px) {
       padding: 0 30px;
+
+      .header-top__navigation {
+         .header-top__menu {
+            .menu__button {
+               svg {
+                  path {
+                     transition: fill .2s ease-in-out;
+                  }
+
+                  &:hover {
+                     path {
+                        fill: #fff;
+                        transition: fill .2s ease-in-out;
+                     }
+                  }
+               }
+            }
+         }
+      }
    }
 
    @media all and (max-width: 768px) {
@@ -281,31 +332,22 @@ body {
 
 
 // top-block
-.top-block {
-   background: #2e0622 url("../images/top_block_bg.jpg") center center no-repeat;
-   background-size: cover;
+.top-block.home {
+   box-sizing: border-box;
 
    .top-block__body {
       max-width: 1250px;
-      height: 987px;
       margin: 0 auto;
       position: relative;
    }
 
    .top-block__title {
       .bearpaw();
-      font-size: 78px;
       color: #ffc10e;
-      line-height: 60px;
       text-align: center;
-      padding-top: 60px;
    }
 
    .roulette {
-      position: absolute;
-      left: -51px;
-      top: 203px;
-
       .roulette__prize {
          display: none;
 
@@ -323,16 +365,10 @@ body {
       .roulette__wheel-lights {
          position: relative;
          z-index: 2;
-
-         img {
-            width: 560px;
-         }
       }
 
       .roulette__wheel-spin {
          position: absolute;
-         left: 70px;
-         top: 68px;
          z-index: 1;
 
          &.pulse {
@@ -346,8 +382,6 @@ body {
 
       .roulette__wheel-prize-wrap {
          position: absolute;
-         right: 37px;
-         top: 99px;
          z-index: 1;
          opacity: 0;
          transition: opacity .5s ease-in-out;
@@ -359,31 +393,12 @@ body {
 
          .wheel-prize {
             position: absolute;
-            right: 68px;
-            top: calc(50% - 52px);
             z-index: 3;
-
-            img {
-               width: 100px;
-            }
          }
-      }
-
-      @keyframes wheelSpinLoader {
-         0% { transform: rotate(-360deg); }
-         100% { transform: rotate(0); }
-      }
-
-      @keyframes drumLoader {
-         100% { transform: scale(1); }
-         50% { transform: scale(1.025); }
-         0% { transform: scale(1); }
       }
 
       .roulette__spin-btn {
          position: absolute;
-         left: 238px;
-         top: 244px;
          z-index: 2;
          cursor: pointer;
 
@@ -411,22 +426,7 @@ body {
             }
          }
 
-         &:hover {
-            span {
-               transform: scale(1);
-               filter: brightness(1.8);
-               transition: transform .2s ease-in-out;
-            }
-
-            .spin-bg {
-               filter: brightness(1.8);
-               transition: filter .2s ease-in-out;
-            }
-         }
-
          .spin-bg {
-            width: 86px;
-            height: 86px;
             display: block;
             filter: brightness(1.3);
             transition: filter .2s ease-in-out;
@@ -434,25 +434,31 @@ body {
 
          span {
             position: absolute;
-            top: 19px;
-            left: -13px;
             transform: scale(.9);
             filter: brightness(1.3);
             transition: transform .2s ease-in-out;
 
             img {
-               width: 113px;
-               height: 46px;
                display: block;
             }
          }
+      }
+
+      @keyframes wheelSpinLoader {
+         0% { transform: rotate(-360deg); }
+         100% { transform: rotate(0); }
+      }
+
+      @keyframes drumLoader {
+         100% { transform: scale(1); }
+         50% { transform: scale(1.025); }
+         0% { transform: scale(1); }
       }
    }
 
    .top-block__candle {
       position: absolute;
       bottom: -26px;
-      right: -212px;
 
       img {
          width: 350px;
@@ -460,9 +466,6 @@ body {
    }
 
    .top-block__get-win {
-      position: absolute;
-      right: 32px;
-      top: 128px;
       cursor: pointer;
 
       img {
@@ -480,10 +483,8 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 415px;
       margin: 0 auto;
       position: relative;
-      left: calc(50% - 580px);
 
       .scroll {
          position: absolute;
@@ -491,30 +492,17 @@ body {
          left: 0;
          z-index: 2;
          pointer-events: none;
-
-         img {
-            width: 415px;
-         }
       }
 
       .scroll-canvas {
          position: absolute;
          top: 40px;
-         left: calc(50% - 160px);
          z-index: 1;
          background: url("../images/scroll_part2.png") center bottom no-repeat;
          background-size: cover;
-         width: 320px;
-         padding-bottom: 20px;
-      }
-
-      .scroll-canvas__prizes {
-
       }
 
       .get-your-prizes {
-         width: 236px;
-         height: 67px;
          background: url("../images/Get-Your-Prizes.png") center center no-repeat;
          background-size: cover;
          cursor: pointer;
@@ -523,5 +511,598 @@ body {
          margin-top: 30px;
       }
    }
+
+   @media all and (min-width: 1471px) {
+      .top-block__candle {
+         &.left {
+            left: -212px;
+         }
+
+         &.right {
+            right: -212px;
+         }
+      }
+   }
+
+   @media all and (max-width: 1470px) {
+      .top-block__candle {
+         &.left {
+            left: -73px;
+         }
+
+         &.right {
+            right: -73px;
+         }
+      }
+   }
+
+   @media all and (min-width: 1306px) {
+      background: #2e0622 url("../images/top_block_bg.jpg") center center no-repeat;
+      background-size: cover;
+      overflow: hidden;
+
+      .top-block__body {
+         max-width: 1250px;
+         height: 987px;
+      }
+
+      .roulette {
+         position: absolute;
+         left: -51px;
+         top: 203px;
+      }
+
+      .top-block__prizes {
+         top: 0;
+         left: calc(50% - 585px);
+      }
+
+      .top-block__get-win {
+         position: absolute;
+         right: 32px;
+         top: 128px;
+      }
+   }
+
+   @media all and (max-width: 1305px) {
+      background: #2e0622 url("../images/top_block_bg_mobile.png") center bottom no-repeat;
+
+      .top-block__body {
+         display: flex;
+         flex-direction: column;
+      }
+
+      .roulette {
+         position: relative;
+         margin: 0 auto;
+         order: 1;
+
+         .roulette__wheel-prize-wrap {
+            right: calc(50% - 55px);
+         }
+      }
+
+      .top-block__prizes {
+         order: 2;
+         min-height: 743px;
+         top: -18px;
+      }
+
+      .top-block__get-win {
+         position: absolute;
+         left: calc(50% - 173px);
+         bottom: 100px;
+         order: 3;
+      }
+
+      .top-block__candle {
+         display: none;
+      }
+   }
+
+   @media all and (min-width: 769px) {
+      padding: 0 30px;
+
+      .top-block__title {
+         font-size: 78px;
+         line-height: 60px;
+         padding-top: 60px;
+      }
+
+      .roulette {
+         .roulette__wheel-lights {
+            img {
+               width: 560px;
+            }
+         }
+
+         .roulette__wheel-spin {
+            left: 70px;
+            top: 68px;
+         }
+
+         .roulette__spin-btn {
+            left: 238px;
+            top: 244px;
+
+            &:hover {
+               span {
+                  transform: scale(1);
+                  filter: brightness(1.8);
+                  transition: transform .2s ease-in-out;
+               }
+
+               .spin-bg {
+                  filter: brightness(1.8);
+                  transition: filter .2s ease-in-out;
+               }
+            }
+
+            .spin-bg {
+               width: 86px;
+               height: 86px;
+            }
+
+            span {
+               top: 19px;
+               left: -13px;
+
+               img {
+                  width: 113px;
+                  height: 46px;
+               }
+            }
+         }
+
+         .roulette__wheel-prize-wrap {
+            right: 37px;
+            top: 99px;
+
+            .wheel-prize {
+               right: 68px;
+               top: calc(50% - 52px);
+
+               img {
+                  width: 100px;
+               }
+            }
+         }
+      }
+
+      .top-block__prizes {
+         width: 415px;
+
+         .scroll {
+            img {
+               width: 415px;
+            }
+         }
+
+         .scroll-canvas {
+            left: calc(50% - 160px);
+            width: 320px;
+         }
+
+         .scroll-canvas {
+            padding-bottom: 20px;
+         }
+
+         .get-your-prizes {
+            width: 236px;
+            height: 67px;
+         }
+      }
+   }
+
+   @media all and (max-width: 768px) {
+      padding: 0 15px;
+
+      .top-block__title {
+         font-size: 53px;
+         line-height: 37px;
+         padding-top: 45px;
+      }
+
+      .roulette {
+         .roulette__wheel-lights {
+            img {
+               width: 350px;
+            }
+         }
+
+         .roulette__wheel-spin {
+            left: calc(50% - 135px);
+            top: calc(50% - 135px);
+
+            img {
+               width: 270px;
+            }
+         }
+
+         .roulette__spin-btn {
+            left: calc(50% - 32.5px);
+            top: calc(50% - 32.5px);
+
+            .spin-bg {
+               width: 65px;
+               height: 65px;
+            }
+
+            span {
+               top: calc(50% - 16.5px);
+               left: calc(50% - 44px);
+
+               img {
+                  width: 88px;
+               }
+            }
+         }
+
+         .roulette__wheel-prize-wrap {
+            right: 30px;
+            top: 54px;
+
+            img {
+               width: 160px;
+            }
+
+            .wheel-prize {
+               right: 35px;
+               top: calc(50% - 30px);
+
+               img {
+                  width: 60px;
+               }
+            }
+         }
+      }
+
+      .top-block__prizes {
+         width: 350px;
+
+         .scroll {
+            img {
+               width: 350px;
+            }
+         }
+
+         .scroll-canvas {
+            left: calc(50% - 125px);
+            width: 250px;
+         }
+
+         .scroll-canvas {
+            padding-bottom: 12px;
+         }
+
+         .get-your-prizes {
+            width: 200px;
+            height: 60px;
+         }
+      }
+   }
 }
 // end . top-block
+
+
+// products
+.products {
+   box-sizing: border-box;
+   background: #280521 url("../images/products_bg.jpg") center center no-repeat;
+
+   .products__body {
+      margin: 0 auto;
+      max-width: 1265px;
+   }
+
+   .products__title {
+      .bearpaw();
+      color: #fcf44f;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+         content: '';
+         position: absolute;
+         background: url("../images/candle_3.png") center center no-repeat;
+      }
+   }
+
+   .products__list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 105px -30px 0 -30px;
+
+      &.all {
+         .products__item {
+            display: block;
+         }
+      }
+   }
+
+   .products__item {
+      width: 360px;
+      min-height: 270px;
+      margin: 0 30px 75px 30px;
+      display: none;
+
+      &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+         display: block;
+      }
+
+      .products__img {
+         position: relative;
+         width: 360px;
+         height: 270px;
+
+         &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .7);
+            opacity: 0;
+            transition: opacity .2s ease-in-out;
+         }
+
+         &:hover {
+            &::before {
+               opacity: 1;
+               transition: opacity .2s ease-in-out;
+            }
+
+            .products__play-button {
+               opacity: 1;
+               transition: opacity .2s ease-in-out;
+            }
+
+            .border {
+               opacity: 0;
+               transition: opacity .2s ease-in-out;
+            }
+
+            .fire {
+               opacity: 0;
+               transition: opacity .2s ease-in-out;
+            }
+         }
+      }
+
+      .products__item-title {
+         .ubuntu();
+         font-weight: 300;
+         font-size: 21px;
+         line-height: 30px;
+         color: #fff;
+         text-align: center;
+         margin-right: 10px;
+         margin-left: 10px;
+         padding-top: 35px;
+      }
+
+      .products__play-button {
+         position: absolute;
+         left: calc(50% - 127px);
+         top: 145px;
+         opacity: 0;
+         transition: opacity .2s ease-in-out;
+         text-decoration: none;
+         z-index: 3;
+
+         button {
+            border: none;
+            width: 254px;
+            height: 85px;
+            background: url("../images/button_play.png") center center no-repeat;
+            .ubuntu();
+            font-size: 23px;
+            line-height: 27px;
+            color: #000;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+            cursor: pointer;
+         }
+      }
+
+      .border {
+         position: absolute;
+         top: -35px;
+         left: -35px;
+         bottom: -31px;
+         right: -35px;
+         z-index: 1;
+         transition: opacity .2s ease-in-out;
+
+         img {
+            width: 100%;
+            height: 100%;
+            transition: opacity .2s ease-in-out;
+         }
+      }
+
+      .fire {
+         position: absolute;
+         top: -15px;
+         left: 0;
+
+         img {
+
+         }
+      }
+   }
+
+   .products__button-all {
+      .ubuntu();
+      font-weight: 300;
+      font-size: 23px;
+      line-height: 30px;
+      color: #fff;
+      background-color: #290521;
+      border: 1px solid #fff;
+      border-radius: 35px;
+      box-sizing: border-box;
+      padding: 10px 50px;
+      cursor: pointer;
+      margin: 0 auto;
+      display: block;
+      box-shadow: 1px 0px 16px 10px #5a0822;
+      transition: background-color .2s ease-in-out, color .2s ease-in-out;
+
+      &:hover {
+         background-color: #fff;
+         color: #290521;
+         transition: background-color .2s ease-in-out, color .2s ease-in-out;
+      }
+   }
+
+   @media all and (min-width: 769px) {
+      padding: 0 30px;
+
+      .products__title {
+         font-size: 88px;
+         padding-top: 72px;
+
+         &::after {
+            right: -245px;
+            top: -113px;
+            width: 223px;
+            height: 273px;
+         }
+      }
+   }
+
+   @media all and (max-width: 768px) {
+      padding: 0 15px;
+
+      .products__title {
+         font-size: 68px;
+         padding-top: 40px;
+
+         &::after {
+            right: -148px;
+            top: -55px;
+            width: 130px;
+            height: 159px;
+            background-size: cover;
+         }
+      }
+   }
+}
+// end . products
+
+
+// about
+.about {
+   background: #2a0520 url("../images/about_bg.jpg") center top no-repeat;
+   box-sizing: border-box;
+
+   .about__body {
+      max-width: 1270px;
+      margin: 0 auto;
+   }
+
+   .about__title {
+      .bearpaw();
+      color: #fcf44f;
+      width: 100%;
+      font-size: 88px;
+      padding-top: 72px;
+      text-align: center;
+      margin-left: 65px;
+
+      span {
+         position: relative;
+
+         &::after {
+            content: '';
+            position: absolute;
+            background: url("../images/candle_3.png") center center no-repeat;
+            right: -245px;
+            top: -195px;
+            width: 223px;
+            height: 273px;
+         }
+      }
+   }
+
+   .about__content {
+      display: flex;
+   }
+
+   .about__left {
+      position: relative;
+      width: 530px;
+
+      &.mobile {
+         display: none;
+      }
+
+      .about__left-img {
+         width: 530px;
+      }
+
+      .about__file {
+         position: absolute;
+         top: 125px;
+         right: 52px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+
+      .about__file-circle {
+         position: absolute;
+         z-index: 1;
+         top: -45px;
+         right: -12px;
+      }
+
+      .about__file-img {
+         position: relative;
+         z-index: 2;
+         color: #fff;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+
+         img {
+            width: 65px;
+         }
+      }
+
+      .about__file-text {
+         .ubuntu();
+         font-size: 22px;
+         line-height: 36px;
+         color: #fff;
+         max-width: 150px;
+         text-align: center;
+         margin-top: 40px;
+         display: block;
+      }
+   }
+
+   .about__right {
+      margin-left: 45px;
+
+      .about__description {
+         .ubuntu();
+         font-size: 20px;
+         line-height: 36px;
+         color: #fff;
+         margin-top: 15px;
+      }
+   }
+
+   @media all and (min-width: 769px) {
+      padding: 0 30px;
+   }
+
+   @media all and (max-width: 768px) {
+      padding: 0 15px;
+   }
+}
+// end . about

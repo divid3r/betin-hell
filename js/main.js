@@ -39,4 +39,12 @@ $(document).ready(function() {
    });
    // end . roulette
 
+
+   const productsButtonAll = document.querySelector('.products__button-all'),
+      productsList = document.querySelector('.products__list');
+
+   productsButtonAll.addEventListener('click', () => {
+      productsList.classList.toggle('all');
+   });
+
 });
