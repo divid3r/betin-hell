@@ -1213,7 +1213,10 @@ body {
 }
 .win {
   box-sizing: border-box;
-  background: #4a0c23 url("../images/win_bg_2.png") center 80px no-repeat;
+  background-image: url("../images/win_bg.jpg");
+  background-color: #4a0c23;
+  background-position: center -70px;
+  background-repeat: no-repeat;
 }
 .win .win__body {
   max-width: 1135px;
@@ -1223,8 +1226,6 @@ body {
   font-family: 'Bearpaw', serif;
   color: #fcf44f;
   width: 100%;
-  font-size: 88px;
-  padding-top: 72px;
 }
 .win .win__title span {
   position: relative;
@@ -1233,17 +1234,10 @@ body {
   content: '';
   position: absolute;
   background: url("../images/candle_3.png") center center no-repeat;
-  right: -245px;
-  top: -195px;
-  width: 223px;
-  height: 273px;
 }
 .win .win__subtitle {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 21px;
-  line-height: 24px;
   color: #fff;
-  margin-bottom: 100px;
 }
 .win .win__benefits-img {
   position: relative;
@@ -1254,8 +1248,6 @@ body {
 }
 .win .win__benefits-img .win__benefits-question {
   position: relative;
-  margin-top: 85px;
-  padding-bottom: 50px;
 }
 .win .win__benefits-img .win__benefits-question img {
   display: block;
@@ -1263,12 +1255,8 @@ body {
 }
 .win .win__benefits-img .win__benefits-question span {
   position: absolute;
-  top: 61px;
-  left: 310px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
-  font-size: 24px;
-  line-height: 36px;
   color: #fff;
 }
 .win .win__benefits-img .win__benefits-item {
@@ -1278,113 +1266,360 @@ body {
   position: absolute;
   font-family: "Electron Regular", serif;
   font-weight: 400;
-  font-size: 36px;
-  line-height: 25px;
   color: #c60004;
   text-shadow: -3px -3px 0 #fcf44f, 3px -3px 0 #fcf44f, -3px 3px 0 #fcf44f, 3px 3px 0 #fcf44f;
-}
-.win .win__benefits-img .win__benefits-item .win__benefits-item-img {
-  width: 170px;
-}
-.win .win__benefits-img .win__benefits-item.item-1 {
-  top: 42px;
-  left: calc(50% - 70px);
-}
-.win .win__benefits-img .win__benefits-item.item-1 span {
-  width: 500px;
-  top: -75px;
-  left: calc(50% - 225px);
-  font-size: 48px;
-}
-.win .win__benefits-img .win__benefits-item.item-2 {
-  top: 238px;
-  right: 26px;
-}
-.win .win__benefits-img .win__benefits-item.item-2 span {
-  width: 535px;
-  top: -55px;
-  left: calc(50% - 250px);
-}
-.win .win__benefits-img .win__benefits-item.item-3 {
-  top: 688px;
-  right: 108px;
-}
-.win .win__benefits-img .win__benefits-item.item-3 span {
-  width: 245px;
-  top: -30px;
-  right: -300px;
-  line-height: 42px;
-}
-.win .win__benefits-img .win__benefits-item.item-4 {
-  top: 918px;
-  right: calc(50% - 98px);
-}
-.win .win__benefits-img .win__benefits-item.item-4 span {
-  width: 540px;
-  top: 211px;
-  right: calc(50% - 285px);
-  line-height: 42px;
-}
-.win .win__benefits-img .win__benefits-item.item-5 {
-  top: 683px;
-  left: 140px;
-}
-.win .win__benefits-img .win__benefits-item.item-5 span {
-  top: -12px;
-  left: -275px;
-  line-height: 42px;
-  text-align: right;
-  max-width: 215px;
-}
-.win .win__benefits-img .win__benefits-item.item-6 {
-  top: 235px;
-  left: 57px;
-}
-.win .win__benefits-img .win__benefits-item.item-6 span {
-  top: -65px;
-  left: -115px;
-  line-height: 42px;
-  width: 500px;
 }
 .win .win__benefits-img .win__benefits-ghost {
   position: absolute;
 }
-.win .win__benefits-img .win__benefits-ghost.ghost-1 {
-  top: 330px;
-  left: -178px;
+@media all and (min-width: 1531px) {
+  .win .win__title h2 {
+    padding-top: 198px;
+  }
+  .win .win__benefits-img .win__benefits-question {
+    margin-top: 85px;
+    padding-bottom: 50px;
+  }
+  .win .win__benefits-img .win__benefits-question span {
+    top: 61px;
+    left: 310px;
+    font-size: 24px;
+    line-height: 36px;
+  }
+  .win .win__benefits-img .win__benefits-item span {
+    font-size: 36px;
+    line-height: 25px;
+  }
+  .win .win__benefits-img .win__benefits-item .win__benefits-item-img {
+    width: 170px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-1 {
+    top: 42px;
+    left: calc(50% - 70px);
+  }
+  .win .win__benefits-img .win__benefits-item.item-1 span {
+    width: 500px;
+    top: -75px;
+    left: calc(50% - 225px);
+    font-size: 48px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-2 {
+    top: 238px;
+    right: 26px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-2 span {
+    width: 535px;
+    top: -55px;
+    left: calc(50% - 250px);
+  }
+  .win .win__benefits-img .win__benefits-item.item-3 {
+    top: 688px;
+    right: 108px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-3 span {
+    width: 245px;
+    top: -30px;
+    right: -300px;
+    line-height: 42px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-4 {
+    top: 918px;
+    right: calc(50% - 98px);
+  }
+  .win .win__benefits-img .win__benefits-item.item-4 span {
+    width: 540px;
+    top: 211px;
+    right: calc(50% - 285px);
+    line-height: 42px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-5 {
+    top: 683px;
+    left: 140px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-5 span {
+    top: -12px;
+    left: -275px;
+    line-height: 42px;
+    text-align: right;
+    max-width: 215px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-6 {
+    top: 235px;
+    left: 57px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-6 span {
+    top: -65px;
+    left: -115px;
+    line-height: 42px;
+    width: 500px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-4 {
+    top: -32px;
+    right: -36px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-4 img {
+    width: 239px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-2 {
+    top: 914px;
+    right: -178px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-2 img {
+    width: 373px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-1 {
+    top: 330px;
+    left: -178px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-1 img {
+    width: 195px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-3 {
+    top: 1172px;
+    left: 82px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-3 img {
+    width: 150px;
+  }
 }
-.win .win__benefits-img .win__benefits-ghost.ghost-1 img {
-  width: 195px;
+@media all and (max-width: 1530px) {
+  .win {
+    background-size: 1530px auto;
+  }
+  .win .win__title h2 {
+    padding-top: 173px;
+  }
+  .win .win__benefits-img .img-1 {
+    width: 820px;
+  }
+  .win .win__benefits-img .win__benefits-question {
+    margin-top: 85px;
+    padding-bottom: 50px;
+  }
+  .win .win__benefits-img .win__benefits-question img {
+    width: 480px;
+  }
+  .win .win__benefits-img .win__benefits-question span {
+    top: 49px;
+    left: 374px;
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .win .win__benefits-img .win__benefits-item span {
+    font-size: 24px;
+    line-height: 25px;
+  }
+  .win .win__benefits-img .win__benefits-item .win__benefits-item-img {
+    width: 120px;
+  }
+  .win .win__benefits-img .win__benefits-item .win__benefits-item-img img {
+    width: 120px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-1 {
+    top: 32px;
+    left: calc(50% - 59px);
+  }
+  .win .win__benefits-img .win__benefits-item.item-1 span {
+    width: 400px;
+    top: -65px;
+    left: calc(50% - 190px);
+    font-size: 40px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-2 {
+    top: 168px;
+    right: 198px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-2 span {
+    width: 354px;
+    top: -55px;
+    left: calc(50% - 171px);
+  }
+  .win .win__benefits-img .win__benefits-item.item-3 {
+    top: 480px;
+    right: 250px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-3 span {
+    width: 200px;
+    top: -7px;
+    right: -236px;
+    line-height: 35px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-4 {
+    top: 643px;
+    right: calc(50% - 61px);
+  }
+  .win .win__benefits-img .win__benefits-item.item-4 span {
+    width: 358px;
+    top: 148px;
+    right: calc(50% - 203px);
+    line-height: 35px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-5 {
+    top: 486px;
+    left: 256px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-5 span {
+    top: -11px;
+    left: -179px;
+    line-height: 35px;
+    text-align: right;
+    max-width: 137px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-6 {
+    top: 168px;
+    left: 197px;
+  }
+  .win .win__benefits-img .win__benefits-item.item-6 span {
+    top: -65px;
+    left: -76px;
+    line-height: 42px;
+    width: 271px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-4 {
+    top: -50px;
+    right: 110px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-4 img {
+    width: 195px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-2 {
+    top: 654px;
+    right: 17px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-2 img {
+    width: 290px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-1 {
+    top: 201px;
+    left: 31px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-1 img {
+    width: 150px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-3 {
+    top: 810px;
+    left: 181px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-3 img {
+    width: 123px;
+  }
 }
-.win .win__benefits-img .win__benefits-ghost.ghost-2 {
-  top: 914px;
-  right: -178px;
-}
-.win .win__benefits-img .win__benefits-ghost.ghost-2 img {
-  width: 373px;
-}
-.win .win__benefits-img .win__benefits-ghost.ghost-3 {
-  top: 1172px;
-  left: 82px;
-}
-.win .win__benefits-img .win__benefits-ghost.ghost-3 img {
-  width: 150px;
-}
-.win .win__benefits-img .win__benefits-ghost.ghost-4 {
-  top: -32px;
-  right: -36px;
-}
-.win .win__benefits-img .win__benefits-ghost.ghost-4 img {
-  width: 239px;
+@media all and (max-width: 1200px) {
+  .win {
+    background-size: 1152px auto;
+  }
+  .win .win__benefits-img .img-1 {
+    width: 360px;
+  }
+  .win .win__benefits-img .win__benefits-item span {
+    font-size: 24px;
+    line-height: 25px;
+  }
+  .win .win__benefits-img .win__benefits-item .win__benefits-item-img {
+    width: 55px;
+  }
+  .win .win__benefits-img .win__benefits-item .win__benefits-item-img img {
+    width: 55px;
+  }
+  .win .win__benefits-img .win__benefits-item.item span {
+    display: none;
+  }
+  .win .win__benefits-img .win__benefits-item.item-1 {
+    top: 14px;
+    left: calc(50% - 27px);
+  }
+  .win .win__benefits-img .win__benefits-item.item-2 {
+    top: 73px;
+    right: calc(50% - 164px);
+  }
+  .win .win__benefits-img .win__benefits-item.item-3 {
+    top: 210px;
+    right: calc(50% - 136px);
+  }
+  .win .win__benefits-img .win__benefits-item.item-4 {
+    top: 281px;
+    right: calc(50% - 29px);
+  }
+  .win .win__benefits-img .win__benefits-item.item-5 {
+    top: 213px;
+    left: calc(50% - 136px);
+  }
+  .win .win__benefits-img .win__benefits-item.item-6 {
+    top: 73px;
+    left: calc(50% - 164px);
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-4 {
+    top: -1px;
+    right: calc(50% - 142px);
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-4 img {
+    width: 78px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-2 {
+    top: 293px;
+    right: calc(50% - 146px);
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-2 img {
+    width: 121px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-1 {
+    top: 138px;
+    left: calc(50% - 191px);
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-1 img {
+    width: 63px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-3 {
+    top: 415px;
+    left: 181px;
+  }
+  .win .win__benefits-img .win__benefits-ghost.ghost-3 img {
+    width: 80px;
+    transform: rotateY(-180deg);
+  }
 }
 @media all and (min-width: 769px) {
   .win {
     padding: 0 30px;
   }
+  .win .win__title h2 {
+    font-size: 88px;
+  }
+  .win .win__title span::after {
+    right: -245px;
+    top: -195px;
+    width: 223px;
+    height: 273px;
+  }
+  .win .win__subtitle {
+    font-size: 21px;
+    line-height: 24px;
+    margin-bottom: 100px;
+  }
 }
 @media all and (max-width: 768px) {
   .win {
     padding: 0 15px;
+  }
+  .win .win__title {
+    max-width: 200px;
+  }
+  .win .win__title h2 {
+    font-size: 68px;
+    line-height: 48px;
+  }
+  .win .win__title span::after {
+    right: -211px;
+    top: -90px;
+    width: 122px;
+    height: 150px;
+    background-size: 122px 150px;
+  }
+  .win .win__subtitle {
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 10px;
+    margin-bottom: 100px;
   }
 }
 .suggestion.home {
