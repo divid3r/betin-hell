@@ -1,0 +1,17 @@
+.sprite-container {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+.sprite-image {
+	height: 165px;
+	width: 240px;
+	background: url(logo_2.png) 0px 0px;
+	animation: paly 1s steps(16) infinite;
+}
+
+@keyframes paly{
+	100%{
+		background-position: -4134px;
+	}
+}

@@ -1,0 +1,16 @@
+.sprite-container {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+.sprite-image {
+	height: 163px;
+	width: 1392px;
+	background-image: url("logo_3.png");
+	-webkit-animation: playv 0.8s steps(11) infinite;
+}
+
+@-webkit-keyframes playv {
+     0% { background-position-y:   0px; }
+   100% { background-position-y: 100%; }
+}
