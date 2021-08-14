@@ -3,7 +3,8 @@
 $(document).ready(function() {
 
    const roulettePrizes = document.querySelectorAll('.roulette__prize'),
-      wheelPrize = document.querySelector('.wheel-prize');
+      wheelPrize = document.querySelector('.wheel-prize'),
+      scrollCanvasPrizes = document.querySelector('.scroll-canvas__prizes');
    let randomPrize = null,
       randomPrizeIndex = 0,
       randomPrizeImg = null,
