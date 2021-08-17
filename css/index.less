@@ -78,7 +78,47 @@ body {
       top: 0;
 
       .logo {
+         background-color: transparent;
          position: absolute;
+         perspective: 1000px;
+
+         &.spin {
+            .logo__spinner {
+               transform: rotateY(180deg);
+            }
+         }
+      }
+
+      .logo__blur {
+         display: none;
+         position: absolute;
+         top: 3px;
+         left: 17px;
+         height: 148px;
+         width: 233px;
+         background-image: url("../images/logo_blur.png");
+         animation: logoBlur 1.0s steps(12) infinite;
+      }
+
+      .logo__spinner {
+         position: relative;
+         width: 100%;
+         height: 100%;
+         transform-style: preserve-3d;
+         transition: transform 0.6s;
+
+         .logo__front {
+            position: absolute;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+         }
+
+         .logo__back {
+            position: absolute;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+         }
       }
    }
 
@@ -125,8 +165,31 @@ body {
             top: -4px;
             left: calc(50% - 17.875px);
 
-            svg {
+            &.active {
+               .open {
+                  display: none;
+               }
+
+               .close {
+                  display: block;
+
+                  g {
+                     fill: #ff7200;
+                  }
+               }
+            }
+
+            .open {
                path {
+                  fill: #f5b90f;
+               }
+            }
+
+            .close {
+               display: none;
+               margin-left: 3.5px;
+
+               g {
                   fill: #f5b90f;
                }
             }
@@ -148,15 +211,12 @@ body {
             text-transform: uppercase;
 
             img {
-               width: 36px;
                display: block;
-               margin-right: 10px;
             }
 
             &::after {
                content: '';
                position: absolute;
-               top: 16px;
                right: 0;
                background: url("../images/arrow_tri.png") center center no-repeat;
                width: 12px;
@@ -183,9 +243,7 @@ body {
             text-transform: uppercase;
 
             img {
-               width: 36px;
                display: block;
-               margin-right: 10px;
             }
          }
       }
@@ -211,21 +269,37 @@ body {
          }
 
          .logo {
-            top: 1px;
-            left: calc(50% - 121px);
+            top: 2px;
+            left: calc(50% - 1px);
 
             img {
                width: 256px;
+            }
+         }
+
+         .logo__spinner {
+            .logo__front {
+               left: calc(50% - 115px);
+               width: 246px;
+
+               img {
+                  width: 246px;
+               }
+            }
+
+            .logo__back {
+               left: calc(50% - 128px);
+               width: 256px;
+
+               img {
+                  width: 256px;
+               }
             }
          }
       }
 
       .header-top__navigation {
          .header-top__menu {
-            span {
-               margin-top: 10px;
-            }
-
             .menu {
                margin-top: 10px;
             }
@@ -256,7 +330,7 @@ body {
 
       .header-top__logo {
          width: 190px;
-         left: 38px;
+         left: 22px;
 
          .logo-before {
             img {
@@ -266,10 +340,31 @@ body {
 
          .logo {
             top: 1px;
-            left: calc(50% - 65px);
+            left: calc(50%);
 
             img {
                width: 138px;
+            }
+         }
+
+         .logo__spinner {
+            .logo__front {
+               left: calc(50% - 66px);
+               width: 138px;
+
+               img {
+                  width: 138px;
+               }
+            }
+
+            .logo__back {
+               top: -2px;
+               left: calc(50% - 74px);
+               width: 148px;
+
+               img {
+                  width: 148px;
+               }
             }
          }
       }
@@ -299,13 +394,26 @@ body {
       .header-top__navigation {
          .header-top__menu {
             .menu__button {
-               svg {
+               .open {
                   path {
                      transition: fill .2s ease-in-out;
                   }
 
                   &:hover {
                      path {
+                        fill: #fff;
+                        transition: fill .2s ease-in-out;
+                     }
+                  }
+               }
+
+               .close {
+                  g {
+                     transition: fill .2s ease-in-out;
+                  }
+
+                  &:hover {
+                     g {
                         fill: #fff;
                         transition: fill .2s ease-in-out;
                      }
@@ -320,13 +428,79 @@ body {
       padding: 0 15px;
    }
 
+   @media all and (min-width: 577px) {
+      .header-top__navigation {
+         .header-top__languages {
+            .header-top__languages-title {
+               img {
+                  width: 36px;
+                  margin-right: 10px;
+               }
+
+               &::after {
+                  top: 16px;
+               }
+            }
+
+            li {
+               img {
+                  width: 36px;
+                  margin-right: 10px;
+               }
+            }
+         }
+      }
+   }
+
+   @media all and (max-width: 576px) {
+      .header-top__navigation {
+         .header-top__menu {
+            .menu {
+               margin-top: 5px;
+            }
+
+            .menu__body {
+               svg {
+                  width: auto;
+                  height: 33px;
+               }
+            }
+
+            .menu__button {
+               top: -1px;
+               left: calc(50% - 22px);
+
+               svg {
+                  height: 22px;
+               }
+            }
+         }
+
+         .header-top__languages {
+            .header-top__languages-title {
+               img {
+                  width: 28px;
+                  margin-right: 5px;
+               }
+
+               &::after {
+                  top: 11px;
+               }
+            }
+
+            li {
+               img {
+                  width: 28px;
+                  margin-right: 5px;
+               }
+            }
+         }
+      }
+   }
+
    @media all and (min-width: 501px) {
       .header-top__navigation {
          .header-top__menu {
-            span {
-               display: none;
-            }
-
             .menu {
                margin-right: 38px;
             }
@@ -342,7 +516,7 @@ body {
             }
 
             .menu {
-               margin-right: 15px;
+               margin-right: 0;
             }
          }
       }
@@ -350,6 +524,17 @@ body {
 }
 // end . header-top
 
+// animations
+@keyframes candle {
+   0% { background-position-x: 0px; }
+   100% { background-position-x: 100%; }
+}
+
+@keyframes buttonFire {
+   0% { background-position-x: 0px; }
+   100% { background-position-x: 100%; }
+}
+// end . animations
 
 // top-block
 .top-block.home {
@@ -370,21 +555,23 @@ body {
    .roulette {
       .roulette__prize {
          display: none;
+      }
 
-         .roulette__prize {
-            svg {
-
-            }
-
-            span {
-
-            }
+      @keyframes wheelLights {
+         0% {
+            background: url("../images/wheel_lights_1.png") -9px 2px no-repeat;
+            background-size: 560px 553px;
+         }
+         100% {
+            background: url("../images/wheel_lights_2.png") -9px 2px no-repeat;
+            background-size: 560px 553px;
          }
       }
 
       .roulette__wheel-lights {
-         position: relative;
+         position: absolute;
          z-index: 2;
+         animation: wheelLights .5s infinite;
       }
 
       .roulette__wheel-spin {
@@ -405,6 +592,7 @@ body {
          z-index: 1;
          opacity: 0;
          transition: opacity .5s ease-in-out;
+         user-select: none;
 
          &.show {
             opacity: 1;
@@ -457,9 +645,11 @@ body {
             transform: scale(.9);
             filter: brightness(1.3);
             transition: transform .2s ease-in-out;
+            user-select: none;
 
             img {
                display: block;
+               user-select: none;
             }
          }
       }
@@ -476,13 +666,22 @@ body {
       }
    }
 
-   .top-block__candle {
+   .top-block__candle.left {
       position: absolute;
       bottom: -26px;
+      height: 428px;
+      width: 324px;
+      background-image: url("../images/candle_left.png");
+      animation: candle 2s steps(17) infinite;
+   }
 
-      img {
-         width: 350px;
-      }
+   .top-block__candle.right {
+      position: absolute;
+      bottom: -26px;
+      height: 428px;
+      width: 324px;
+      background-image: url("../images/candle_right.png");
+      animation: candle 2s steps(17) infinite;
    }
 
    .top-block__get-win {
@@ -522,17 +721,60 @@ body {
          background-size: cover;
       }
 
+      .scroll-canvas__prizes {
+         box-sizing: border-box;
+
+         .scroll-canvas__prize {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            &.prize-added {
+
+            }
+
+            img {
+               display: block;
+               margin-right: 11px;
+            }
+
+            &:last-child {
+               margin-bottom: 0;
+            }
+         }
+
+         span {
+            .ubuntu();
+            font-weight: 300;
+            color: #fff;
+         }
+      }
+
       .get-your-prizes {
          background: url("../images/button_bg_type1.png") center center no-repeat;
          background-size: cover;
          cursor: pointer;
          display: block;
          margin: 0 auto;
-         margin-top: 30px;
+         margin-top: 62px;
          .ubuntu();
          font-size: 23px;
          color: #000;
          font-weight: 400;
+         position: relative;
+
+         &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: -96px;
+            left: -50px;
+            height: 175px;
+            width: 335px;
+            background-image: url("../images/button_fire.png");
+            animation: buttonFire .7s steps(14) infinite;
+         }
 
          .try {
             display: flex;
@@ -544,6 +786,24 @@ body {
          span {
             display: block;
             margin-right: 7px;
+         }
+
+         .text-done {
+            display: none;
+         }
+
+         &.done {
+            .text-done {
+               display: block;
+            }
+
+            .text {
+               display: none;
+            }
+
+            .count {
+               display: none;
+            }
          }
       }
    }
@@ -578,14 +838,27 @@ body {
       overflow: hidden;
 
       .top-block__body {
-         max-width: 1250px;
          height: 987px;
       }
 
       .roulette {
          position: absolute;
-         left: -51px;
+         left: -43px;
          top: 203px;
+
+         .roulette__wheel-prize-wrap {
+            right: -512px;
+            top: 99px;
+
+            .wheel-prize {
+               right: 68px;
+               top: calc(50% - 52px);
+
+               img {
+                  width: 100px;
+               }
+            }
+         }
       }
 
       .top-block__prizes {
@@ -614,17 +887,26 @@ body {
       .roulette {
          position: relative;
          margin: 0 auto;
-         order: 1;
+         width: 560px;
+         height: 553px;
 
          .roulette__wheel-prize-wrap {
-            right: calc(50% - 55px);
+            right: 51px;
+            top: 99px;
+
+            .wheel-prize {
+               right: 68px;
+               top: calc(50% - 52px);
+
+               img {
+                  width: 100px;
+               }
+            }
          }
       }
 
       .top-block__prizes {
-         order: 2;
-         min-height: 1005px;
-         top: -18px;
+         min-height: 960px;
       }
 
       .top-block__get-win {
@@ -632,6 +914,7 @@ body {
          left: calc(50% - 173px);
          bottom: 100px;
          order: 3;
+         user-select: none;
       }
 
       .top-block__candle {
@@ -650,18 +933,17 @@ body {
 
       .roulette {
          .roulette__wheel-lights {
-            img {
-               width: 560px;
-            }
+            width: 560px;
+            height: 553px;
          }
 
          .roulette__wheel-spin {
-            left: 70px;
+            left: 60px;
             top: 68px;
          }
 
          .roulette__spin-btn {
-            left: 238px;
+            left: 226px;
             top: 244px;
 
             &:hover {
@@ -692,20 +974,6 @@ body {
                }
             }
          }
-
-         .roulette__wheel-prize-wrap {
-            right: 37px;
-            top: 99px;
-
-            .wheel-prize {
-               right: 68px;
-               top: calc(50% - 52px);
-
-               img {
-                  width: 100px;
-               }
-            }
-         }
       }
 
       .top-block__prizes {
@@ -720,6 +988,22 @@ body {
          .scroll-canvas {
             left: calc(50% - 160px);
             width: 320px;
+         }
+
+         .scroll-canvas__prizes {
+            padding: 20px 25px 0 25px;
+
+            .scroll-canvas__prize {
+               img {
+                  width: 40px;
+                  height: 40px;
+               }
+
+               span {
+                  font-size: 18px;
+                  line-height: 22px;
+               }
+            }
          }
 
          .scroll-canvas {
@@ -743,14 +1027,19 @@ body {
       }
 
       .roulette {
+         width: 330px;
+         height: 328px;
+
          .roulette__wheel-lights {
-            img {
-               width: 350px;
-            }
+            left: calc(50% - 165px);
+            top: 0;
+            width: 330px;
+            height: 328px;
+            background-size: 330px 328px !important;
          }
 
          .roulette__wheel-spin {
-            left: calc(50% - 135px);
+            left: calc(50% - 140px);
             top: calc(50% - 135px);
 
             img {
@@ -759,7 +1048,7 @@ body {
          }
 
          .roulette__spin-btn {
-            left: calc(50% - 32.5px);
+            left: calc(50% - 37.5px);
             top: calc(50% - 32.5px);
 
             .spin-bg {
@@ -778,8 +1067,8 @@ body {
          }
 
          .roulette__wheel-prize-wrap {
-            right: 30px;
-            top: 54px;
+            right: 36px;
+            top: 45px;
 
             img {
                width: 160px;
@@ -797,17 +1086,35 @@ body {
       }
 
       .top-block__prizes {
-         width: 350px;
+         width: 330px;
+         top: 0;
+         min-height: 900px;
 
          .scroll {
             img {
-               width: 350px;
+               width: 330px;
             }
          }
 
          .scroll-canvas {
-            left: calc(50% - 125px);
-            width: 250px;
+            left: calc(50% - 121px);
+            width: 240px;
+         }
+
+         .scroll-canvas__prizes {
+            padding: 10px 20px 0 20px;
+
+            .scroll-canvas__prize {
+               img {
+                  width: 30px;
+                  height: 30px;
+               }
+
+               span {
+                  font-size: 16px;
+                  line-height: 19px;
+               }
+            }
          }
 
          .scroll-canvas {
@@ -815,8 +1122,9 @@ body {
          }
 
          .get-your-prizes {
-            width: 200px;
-            height: 60px;
+            width: 180px;
+            height: 50px;
+            font-size: 20px;
          }
       }
    }
@@ -1475,12 +1783,12 @@ body {
 
             .about__language {
                width: 50%;
-               max-width: 160px;
+               max-width: 150px;
                margin-right: 10px;
                margin-bottom: 14px;
 
                span {
-                  font-size: 18px;
+                  font-size: 17px;
                   margin-left: 7px;
                }
             }

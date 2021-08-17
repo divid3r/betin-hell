@@ -3,14 +3,121 @@
 	display: flex;
 	align-items: center;
 }
-.sprite-image {
+.sprite-image_1 {
 	height: 163px;
 	width: 1392px;
-	background-image: url("logo_3.png");
-	-webkit-animation: playv 0.8s steps(11) infinite;
+	background-image: url("sprite_1.png");
+	-webkit-animation: play_1 0.8s steps(11) infinite;
+}
+.sprite-image_2 {
+	height: 42px;
+	width: 83px;
+	background-image: url("sprite_2.png");
+	-webkit-animation: play_2 0.4s steps(3) infinite;
 }
 
-@-webkit-keyframes playv {
+.sprite-image_3 {
+	height: 175px;
+	width: 335px;
+	background-image: url("sprite_3.png");
+	-webkit-animation: play_3 1s steps(14) infinite;
+}
+
+.sprite-image_4 {
+	height: 55px;
+	width: 305px;
+	background-image: url("sprite_4.png");
+	-webkit-animation: play_4 1s steps(13) infinite;
+}
+
+.sprite-image_5 {
+	height: 165px;
+	width: 256px;
+	background-image: url("sprite_5.png");
+	-webkit-animation: play_5 1.7s steps(16) infinite;
+}
+
+.sprite-image_6 {
+	height: 148px;
+	width: 233px;
+	background-image: url("sprite_6.png");
+	-webkit-animation: play_6 1s steps(12) infinite;
+}
+
+.sprite-image_7 {
+	height: 502px;
+	width: 1192px;
+	background-image: url("sprite_7_1.png");
+	-webkit-animation: play_7 1.2s steps(8) infinite;
+}
+
+.sprite-image_8 {
+	height: 299px;
+	width: 220px;
+	background-image: url("sprite_8.png");
+	-webkit-animation: play_8 2s steps(17) infinite;
+}
+
+.sprite-image_9 {
+	height: 428px;
+	width: 324px;
+	background-image: url("sprite_9.png");
+	-webkit-animation: play_8 2s steps(17) infinite;
+}
+
+.sprite-image_10 {
+	height: 428px;
+	width: 324px;
+	background-image: url("sprite_10.png");
+	-webkit-animation: play_8 2s steps(17) infinite;
+}
+
+@-webkit-keyframes play_1 {
      0% { background-position-y:   0px; }
    100% { background-position-y: 100%; }
+}
+
+@-webkit-keyframes play_2 {
+     0% { background-position-x:   0px; }
+   100% { background-position-x: 100%; }
+}
+
+@-webkit-keyframes play_3 {
+     0% { background-position-x:   0px; }
+   100% { background-position-x: 100%; }
+}
+
+@-webkit-keyframes play_4 {
+     0% { background-position-y:   0px; }
+   100% { background-position-y: 100%; }
+}
+
+@-webkit-keyframes play_5 {
+     0% { background-position-x:   0px; }
+   100% { background-position-x: 100%; }
+}
+
+@-webkit-keyframes play_6 {
+     0% { background-position-x:   0px; }
+   100% { background-position-x: 100%; }
+}
+
+@-webkit-keyframes play_7 {
+     0% { background-position-y:   0px; }
+   100% { background-position-y: 100%; }
+}
+
+@-webkit-keyframes play_8 {
+     0% { background-position-x:   0px; }
+   100% { background-position-x: 100%; }
+}
+
+@-webkit-keyframes play_9 {
+     0% { background-position-x:   0px; }
+   100% { background-position-x: 100%; }
+}
+
+@-webkit-keyframes play_9 {
+     0% { background-position-x:   0px; }
+   100% { background-position-x: 100%; }
 }
