@@ -39,6 +39,7 @@ $(document).ready(function() {
       rouletteSpinBtn = document.querySelector('.roulette__spin-btn'),
       roulettePrizes = document.querySelectorAll('.roulette__prize'),
       wheelPrize = document.querySelector('.wheel-prize'),
+      wheelPrizeFly = document.querySelector('.wheel-prize-fly'),
       scrollCanvasPrizes = document.querySelector('.scroll-canvas__prizes'),
       getYourPrizesCount = document.querySelector('.scroll-canvas .get-your-prizes .count'),
       getYourPrizes = document.querySelector('.scroll-canvas .get-your-prizes');
@@ -50,9 +51,7 @@ $(document).ready(function() {
       luckySpin = 6;
 
    rouletteSpinBtn.addEventListener('click', () => {
-      luckySpin--;
-
-      if (luckySpin >= 0) {
+      if (luckySpin >= 1) {
 
          if (!roulette.classList.contains('active')) {
             roulette.classList.add('active');
@@ -72,6 +71,22 @@ $(document).ready(function() {
                   randomPrizeText = roulettePrizes[randomPrizeIndex].children[2].cloneNode(true);
                   wheelPrize.append(randomPrizeImg);
 
+                  // prize fly to the canvas
+                  const prizeFlyImg = randomPrizeImgCanvas.cloneNode(true);
+                  const prizeFlyBody = document.createElement('div');
+
+                  prizeFlyBody.classList.add('wheel-prize');
+                  prizeFlyBody.append(prizeFlyImg);
+                  wheelPrizeFly.append(prizeFlyBody);
+
+                  window.setTimeout(() => {
+                     prizeFlyBody.classList.add('move');
+
+                     window.setTimeout(() => {
+                        wheelPrizeFly.innerHTML = '';
+                     }, 200);
+                  }, 200);
+
                   $('.roulette__wheel-prize-wrap').addClass('show');
                   $('.roulette__wheel-spin').removeClass('rotate');
                   $('.roulette__spin-btn').removeClass('active');
@@ -83,9 +98,10 @@ $(document).ready(function() {
                   scrollCanvasPrize.append(randomPrizeText);
 
                   scrollCanvasPrize.classList.add('prize-added');
+                  luckySpin--;
                   window.setTimeout(() => {
                      scrollCanvasPrizes.prepend(scrollCanvasPrize);
-                  }, 500)
+                  }, 250);
 
                   if (luckySpin >= 1) {
                      getYourPrizesCount.textContent = luckySpin;
