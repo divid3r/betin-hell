@@ -527,6 +527,7 @@ body {
 }
 // end . header-top
 
+
 // animations
 @keyframes logoBlur {
    0% { background-position-x: 0; }
@@ -563,7 +564,20 @@ body {
    76% { transform: rotate(270deg); }
    100% { left: -32px; top: -15px; transform: rotate(270deg); }
 }
+
+@keyframes energy {
+   0% { background-position-y: 0; }
+   100% { background-position-y: 100%; }
+}
 // end . animations
+
+
+// content
+.content.home {
+   overflow: hidden;
+}
+// end . content
+
 
 // top-block
 .top-block.home {
@@ -1371,10 +1385,6 @@ body {
 
       .border {
          position: absolute;
-         top: -35px;
-         left: -35px;
-         bottom: -31px;
-         right: -35px;
          z-index: 1;
          transition: opacity .2s ease-in-out;
 
@@ -1501,6 +1511,13 @@ body {
          min-height: 270px;
          margin: 0 30px 75px 30px;
 
+         .border {
+            top: -35px;
+            left: -35px;
+            bottom: -31px;
+            right: -35px;
+         }
+
          .products__img {
             width: 360px;
             height: 270px;
@@ -1513,6 +1530,13 @@ body {
          width: 300px;
          min-height: 225px;
          margin: 0 0 50px 0;
+
+         .border {
+            top: -25px;
+            left: -25px;
+            bottom: -22px;
+            right: -25px;
+         }
 
          .products__img {
             width: 300px;
@@ -1639,6 +1663,8 @@ body {
          }
 
          .img-2__text {
+            position: relative;
+
             span {
                display: block;
                .ubuntu();
@@ -1656,6 +1682,16 @@ body {
                   color: #fff;
                   font-size: 16px;
                }
+            }
+
+            .energy {
+               position: absolute;
+               bottom: -55px;
+               left: -137px;
+               height: 55px;
+               width: 305px;
+               background-image: url("../images/energy.png");
+               animation: energy 1s steps(13) infinite;
             }
          }
 
@@ -1948,6 +1984,12 @@ body {
 
             .img-2__body {
                margin-bottom: 10px;
+            }
+
+            .img-2__text {
+               .energy {
+                  display: none;
+               }
             }
 
             .pdfs {
@@ -2713,8 +2755,8 @@ body {
 
 // clients
 .clients.home {
-   background: url(../images/clients_bg.jpg) center top no-repeat;
    margin-top: -21px;
+   box-sizing: border-box;
 
    .clients__body {
       max-width: 1150px;
@@ -2728,8 +2770,6 @@ body {
          .bearpaw();
          color: #fcf44f;
          width: 100%;
-         font-size: 88px;
-         padding-top: 72px;
       }
 
       span {
@@ -2738,11 +2778,8 @@ body {
          &::after {
             content: '';
             position: absolute;
-            background: url("../images/candle_3.png") center center no-repeat;
-            right: -245px;
-            top: -195px;
-            width: 223px;
-            height: 273px;
+            background-image: url("../images/candle.png");
+            animation: candle 2s steps(17) infinite;
          }
       }
    }
@@ -2761,6 +2798,81 @@ body {
 
       img {
          display: block;
+      }
+   }
+
+   @media all and (min-width: 1281px) {
+      background: url(../images/clients_bg.jpg) center top no-repeat;
+   }
+
+   @media all and (max-width: 1280px) {
+      background: url(../images/clients_bg.jpg) center -50px no-repeat;
+      background-size: 1920px 1181px;
+   }
+
+   @media all and (max-width: 870px) {
+      background-size: 1920px 1357px;
+
+      .clients__list {
+         padding: 152px 0 50px 0;
+         justify-content: space-around;
+      }
+
+      .clients__item {
+         margin-right: 25px;
+      }
+   }
+
+   @media all and (min-width: 769px) {
+      padding: 0 30px;
+
+      .clients__title {
+         h2 {
+            font-size: 88px;
+            padding-top: 72px;
+         }
+
+         span {
+            &::after {
+               right: -245px;
+               top: -195px;
+               width: 200px;
+               height: 273px;
+               background-size: auto 273px;
+            }
+         }
+      }
+   }
+
+   @media all and (max-width: 768px) {
+      padding: 0 15px;
+
+      .clients__title {
+         h2 {
+            font-size: 68px;
+            padding-top: 50px;
+         }
+
+         span {
+            &::after {
+               right: -120px;
+               top: -82px;
+               width: 111px;
+               height: 150px;
+               background-size: auto 150px;
+            }
+         }
+      }
+   }
+
+   @media all and (max-width: 620px) {
+      background: url(../images/clients_bg.jpg) center -91px no-repeat;
+      background-size: 1920px 1487px;
+
+      .clients__item {
+         img {
+            width: 127px;
+         }
       }
    }
 }

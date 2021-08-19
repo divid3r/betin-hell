@@ -442,6 +442,17 @@ body {
     transform: rotate(270deg);
   }
 }
+@keyframes energy {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: 100%;
+  }
+}
+.content.home {
+  overflow: hidden;
+}
 .top-block.home {
   box-sizing: border-box;
 }
@@ -1082,10 +1093,6 @@ body {
 }
 .products.home .products__item .border {
   position: absolute;
-  top: -35px;
-  left: -35px;
-  bottom: -31px;
-  right: -35px;
   z-index: 1;
   transition: opacity 0.2s ease-in-out;
 }
@@ -1197,6 +1204,12 @@ body {
     min-height: 270px;
     margin: 0 30px 75px 30px;
   }
+  .products.home .products__item .border {
+    top: -35px;
+    left: -35px;
+    bottom: -31px;
+    right: -35px;
+  }
   .products.home .products__item .products__img {
     width: 360px;
     height: 270px;
@@ -1207,6 +1220,12 @@ body {
     width: 300px;
     min-height: 225px;
     margin: 0 0 50px 0;
+  }
+  .products.home .products__item .border {
+    top: -25px;
+    left: -25px;
+    bottom: -22px;
+    right: -25px;
   }
   .products.home .products__item .products__img {
     width: 300px;
@@ -1310,6 +1329,9 @@ body {
   display: block;
   margin-right: 10px;
 }
+.about.home .about__right .about__canvas-line .img-2__text {
+  position: relative;
+}
 .about.home .about__right .about__canvas-line .img-2__text span {
   display: block;
   font-family: 'Ubuntu', sans-serif;
@@ -1325,6 +1347,15 @@ body {
   font-weight: 300;
   color: #fff;
   font-size: 16px;
+}
+.about.home .about__right .about__canvas-line .img-2__text .energy {
+  position: absolute;
+  bottom: -55px;
+  left: -137px;
+  height: 55px;
+  width: 305px;
+  background-image: url("../images/energy.png");
+  animation: energy 1s steps(13) infinite;
 }
 .about.home .about__right .about__canvas-line .img-3 {
   display: block;
@@ -1545,6 +1576,9 @@ body {
   }
   .about.home .about__right .about__canvas-line .img-2__body {
     margin-bottom: 10px;
+  }
+  .about.home .about__right .about__canvas-line .img-2__text .energy {
+    display: none;
   }
   .about.home .about__right .about__canvas-line .pdfs {
     margin-right: 32px;
@@ -2124,8 +2158,8 @@ body {
   display: block;
 }
 .clients.home {
-  background: url(../images/clients_bg.jpg) center top no-repeat;
   margin-top: -21px;
+  box-sizing: border-box;
 }
 .clients.home .clients__body {
   max-width: 1150px;
@@ -2138,8 +2172,6 @@ body {
   font-family: 'Bearpaw', serif;
   color: #fcf44f;
   width: 100%;
-  font-size: 88px;
-  padding-top: 72px;
 }
 .clients.home .clients__title span {
   position: relative;
@@ -2147,11 +2179,8 @@ body {
 .clients.home .clients__title span::after {
   content: '';
   position: absolute;
-  background: url("../images/candle_3.png") center center no-repeat;
-  right: -245px;
-  top: -195px;
-  width: 223px;
-  height: 273px;
+  background-image: url("../images/candle.png");
+  animation: candle 2s steps(17) infinite;
 }
 .clients.home .clients__list {
   display: flex;
@@ -2166,6 +2195,70 @@ body {
 }
 .clients.home .clients__item img {
   display: block;
+}
+@media all and (min-width: 1281px) {
+  .clients.home {
+    background: url(../images/clients_bg.jpg) center top no-repeat;
+  }
+}
+@media all and (max-width: 1280px) {
+  .clients.home {
+    background: url(../images/clients_bg.jpg) center -50px no-repeat;
+    background-size: 1920px 1181px;
+  }
+}
+@media all and (max-width: 870px) {
+  .clients.home {
+    background-size: 1920px 1357px;
+  }
+  .clients.home .clients__list {
+    padding: 152px 0 50px 0;
+    justify-content: space-around;
+  }
+  .clients.home .clients__item {
+    margin-right: 25px;
+  }
+}
+@media all and (min-width: 769px) {
+  .clients.home {
+    padding: 0 30px;
+  }
+  .clients.home .clients__title h2 {
+    font-size: 88px;
+    padding-top: 72px;
+  }
+  .clients.home .clients__title span::after {
+    right: -245px;
+    top: -195px;
+    width: 200px;
+    height: 273px;
+    background-size: auto 273px;
+  }
+}
+@media all and (max-width: 768px) {
+  .clients.home {
+    padding: 0 15px;
+  }
+  .clients.home .clients__title h2 {
+    font-size: 68px;
+    padding-top: 50px;
+  }
+  .clients.home .clients__title span::after {
+    right: -120px;
+    top: -82px;
+    width: 111px;
+    height: 150px;
+    background-size: auto 150px;
+  }
+}
+@media all and (max-width: 620px) {
+  .clients.home {
+    background: url(../images/clients_bg.jpg) center -91px no-repeat;
+    background-size: 1920px 1487px;
+  }
+  .clients.home .clients__item img {
+    width: 127px;
+  }
 }
 .contacts.home {
   box-sizing: border-box;
