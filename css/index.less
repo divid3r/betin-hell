@@ -547,6 +547,22 @@ body {
    0% { background-position-y: 0; }
    100% { background-position-y: 100%; }
 }
+
+@keyframes fire {
+   0% { background-position-x: 0; }
+   100% { background-position-x: 100%; }
+}
+
+@keyframes fireMove {
+   0% { left: -32px; top: -15px; transform: rotate(0); }
+   25% { left: calc(100% - 30px); top: -15px; transform: rotate(0); }
+   26% { transform: rotate(90deg); }
+   50% { left: calc(100% - 30px); top: calc(100% - 20px); transform: rotate(90deg); }
+   51% { transform: rotate(180deg); }
+   75% { left: -32px; top: calc(100% - 20px); transform: rotate(180deg); }
+   76% { transform: rotate(270deg); }
+   100% { left: -32px; top: -15px; transform: rotate(270deg); }
+}
 // end . animations
 
 // top-block
@@ -1222,6 +1238,22 @@ body {
       max-width: 1265px;
       padding-bottom: 20px;
       box-sizing: border-box;
+
+      &.all {
+         .products__item {
+            display: block;
+         }
+
+         .products__button-all {
+            .turn {
+               display: block;
+            }
+
+            .all {
+               display: none;
+            }
+         }
+      }
    }
 
    .products__title {
@@ -1230,10 +1262,15 @@ body {
       position: relative;
       display: inline-block;
 
-      &::after {
-         content: '';
-         position: absolute;
-         background: url("../images/candle_3.png") center center no-repeat;
+      span {
+         position: relative;
+
+         &::after {
+            content: '';
+            position: absolute;
+            background-image: url("../images/candle.png");
+            animation: candle 2s steps(17) infinite;
+         }
       }
    }
 
@@ -1241,29 +1278,13 @@ body {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      margin: 90px -30px 0 -30px;
-
-      &.all {
-         .products__item {
-            display: block;
-         }
-      }
    }
 
    .products__item {
-      width: 360px;
-      min-height: 270px;
-      margin: 0 30px 75px 30px;
       display: none;
-
-      &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6) {
-         display: block;
-      }
 
       .products__img {
          position: relative;
-         width: 360px;
-         height: 270px;
 
          &::before {
             content: '';
@@ -1321,6 +1342,18 @@ body {
          text-decoration: none;
          z-index: 3;
 
+         &::before {
+            content: '';
+            position: absolute;
+            top: -96px;
+            left: -45px;
+            height: 175px;
+            width: 335px;
+            z-index: -1;
+            background-image: url("../images/button_fire.png");
+            animation: buttonFire .7s steps(14) infinite;
+         }
+
          button {
             border: none;
             width: 254px;
@@ -1354,9 +1387,24 @@ body {
 
       .fire {
          position: absolute;
+         width: 69px;
+         height: 37px;
          top: -15px;
          left: 0;
          z-index: 2;
+         animation: fireMove 3.0s infinite linear;
+
+         &::before {
+            content: '';
+            width: 69px;
+            height: 37px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("../images/fire.png");
+            background-size: auto 37px;
+            animation: fire 0.4s steps(3) infinite;
+         }
       }
    }
 
@@ -1381,6 +1429,12 @@ body {
          color: #f5b90f;
          transition: color .2s ease-in-out;
       }
+
+      .turn {
+         display: none;
+         color: #fff;
+         text-decoration: none;
+      }
    }
 
    @media all and (min-width: 769px) {
@@ -1390,11 +1444,24 @@ body {
          font-size: 88px;
          padding-top: 72px;
 
-         &::after {
-            right: -245px;
-            top: -113px;
-            width: 223px;
-            height: 273px;
+         span {
+            &::after {
+               right: -245px;
+               top: -195px;
+               width: 200px;
+               height: 273px;
+               background-size: auto 273px;
+            }
+         }
+      }
+
+      .products__list {
+         margin: 90px -30px 0 -30px;
+      }
+
+      .products__item {
+         &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+            display: block;
          }
       }
    }
@@ -1406,12 +1473,50 @@ body {
          font-size: 68px;
          padding-top: 40px;
 
-         &::after {
-            right: -148px;
-            top: -55px;
-            width: 130px;
-            height: 159px;
-            background-size: cover;
+         span {
+            &::after {
+               right: -145px;
+               top: -82px;
+               width: 111px;
+               height: 150px;
+               background-size: auto 150px;
+            }
+         }
+      }
+
+      .products__list {
+         margin: 55px 0 0 0;
+      }
+
+      .products__item {
+         &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+            display: block;
+         }
+      }
+   }
+
+   @media all and (min-width: 577px) {
+      .products__item {
+         width: 360px;
+         min-height: 270px;
+         margin: 0 30px 75px 30px;
+
+         .products__img {
+            width: 360px;
+            height: 270px;
+         }
+      }
+   }
+
+   @media all and (max-width: 576px) {
+      .products__item {
+         width: 300px;
+         min-height: 225px;
+         margin: 0 0 50px 0;
+
+         .products__img {
+            width: 300px;
+            height: 225px;
          }
       }
    }
@@ -1440,7 +1545,8 @@ body {
          &::after {
             content: '';
             position: absolute;
-            background: url("../images/candle_3.png") center center no-repeat;
+            background-image: url("../images/candle.png");
+            animation: candle 2s steps(17) infinite;
          }
       }
    }
@@ -1819,21 +1925,21 @@ body {
 
          .about__canvas {
             background: url("../images/about_canvas_mobile.png") center top no-repeat;
-            background-size: 462px 638px;
             padding-top: 55px;
             padding-bottom: 160px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 447px;
+            max-width: 540px;
             margin: 0 auto;
+            padding-left: 20px;
          }
 
          .about__canvas-line {
             .img-1 {
-               width: 90px;
-               height: 90px;
-               margin-right: 25px;
+               width: 80px;
+               height: 80px;
+               margin-right: 15px;
             }
 
             .about__canvas-subline {
@@ -1882,8 +1988,8 @@ body {
                margin-bottom: 10px;
 
                svg {
-                  width: 36px;
-                  height: 36px;
+                  min-width: 36px;
+                  min-height: 36px;
                }
 
                p {
@@ -1906,8 +2012,9 @@ body {
             &::after {
                right: -245px;
                top: -195px;
-               width: 223px;
+               width: 200px;
                height: 273px;
+               background-size: auto 273px;
             }
          }
       }
@@ -1929,11 +2036,11 @@ body {
 
          span {
             &::after {
-               right: -157px;
-               top: -90px;
-               width: 122px;
+               right: -145px;
+               top: -82px;
+               width: 111px;
                height: 150px;
-               background-size: 122px 150px;
+               background-size: auto 150px;
             }
          }
       }
@@ -1942,6 +2049,49 @@ body {
          .about__description {
             font-size: 18px;
             line-height: 30px;
+         }
+
+         .about__info {
+            .about-info__text p {
+               font-size: 16px;
+               line-height: 20px;
+               max-width: 315px;
+            }
+         }
+      }
+   }
+
+   @media all and (max-width: 480px) {
+      .about__right {
+         .about__canvas {
+            padding-left: 25px;
+            background-size: 370px 638px;
+            max-width: 346px;
+         }
+
+         .about__info {
+            .about-info__text p {
+               font-size: 16px;
+               line-height: 20px;
+            }
+         }
+
+         .about__languages {
+            .about__languages-title {
+               span {
+                  font-size: 20px;
+               }
+            }
+
+            .about__language {
+               max-width: 125px;
+               padding-right: 10px;
+
+               span {
+                  font-size: 15px;
+                  margin-left: 5px;
+               }
+            }
          }
       }
    }

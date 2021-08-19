@@ -125,10 +125,10 @@ $(document).ready(function() {
 
 
    const productsButtonAll = document.querySelector('.products__button-all'),
-      productsList = document.querySelector('.products__list');
+      productsBody = document.querySelector('.products__body');
 
    productsButtonAll.addEventListener('click', () => {
-      productsList.classList.toggle('all');
+      productsBody.classList.toggle('all');
    });
 
 });
