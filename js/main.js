@@ -5,23 +5,44 @@ $(document).ready(function() {
    // menu top click
    const headerTopMenuButton = document.querySelector('.header-top .menu__button'),
       headerTopMenuButtonOpen = document.querySelector('.header-top .menu__button .open'),
-      headerTopMenuButtonClose = document.querySelector('.header-top .menu__button .close');
+      headerTopMenuButtonClose = document.querySelector('.header-top .menu__button .close'),
+      headerTopMenuNav = document.querySelector('.header-top__menu-nav'),
+      headerTopMenuNavClose = document.querySelector('.header-top__menu-nav .close'),
+      overlay = document.querySelector('.overlay'),
+      headerTopMenuNavBody = document.querySelector('.header-top__menu-nav-body');
 
    headerTopMenuButtonOpen.addEventListener('click', (e) => {
-      let target = e.target;
-
-      target = target.closest('.open');
       headerTopMenuButton.classList.add('active');
+      headerTopMenuNav.classList.add('show');
+      overlay.classList.add('show');
+   });
 
+   overlay.addEventListener('click', (e) => {
+      headerTopMenuButton.classList.remove('active');
+      headerTopMenuNav.classList.remove('show');
+      overlay.classList.remove('show');
    });
 
    headerTopMenuButtonClose.addEventListener('click', (e) => {
+      headerTopMenuButton.classList.remove('active');
+      headerTopMenuNav.classList.remove('show');
+   });
+
+   headerTopMenuNavClose.addEventListener('click', (e) => {
+      headerTopMenuNav.classList.remove('show');
+      headerTopMenuButton.classList.remove('active');
+      overlay.classList.remove('show');
+   });
+
+   headerTopMenuNavBody.addEventListener('click', (e) => {
       let target = e.target;
 
-      target = target.closest('.close');
-      headerTopMenuButton.classList.remove('active');
+      target = target.closest('.header-top__menu-nav-item');
 
-   });
+      headerTopMenuButton.classList.remove('active');
+      headerTopMenuNav.classList.remove('show');
+      overlay.classList.remove('show');
+   })
 
    // logo animation
    const logo = document.querySelector('.header-top .logo');
@@ -43,8 +64,7 @@ $(document).ready(function() {
       scrollCanvasPrizes = document.querySelector('.scroll-canvas__prizes'),
       getYourPrizesCount = document.querySelector('.scroll-canvas .get-your-prizes .count'),
       getYourPrizes = document.querySelector('.scroll-canvas .get-your-prizes');
-   let randomPrize = null,
-      randomPrizeIndex = 0,
+   let randomPrizeIndex = 0,
       randomPrizeImgCanvas = null,
       randomPrizeImg = null,
       randomPrizeText = null,
